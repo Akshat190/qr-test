@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://qr-test-puxi.onrender.com/api';
 
 export const signup = async (
   email: string, 
@@ -40,27 +40,21 @@ export const signin = async (email: string, password: string) => {
 };
 
 export async function login(email: string, password: string) {
-  console.log('Attempting login for:', email);
   try {
-    const response = await fetch('http://localhost:5000/api/auth/login', {
+    const response = await fetch('https://qr-test-puxi.onrender.com/api/auth/login', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password })
     });
-
-    const data = await response.json();
-    console.log('Server response:', data);
-
+    
     if (!response.ok) {
-      throw new Error(data.message || 'Login failed');
+      const error = await response.text();
+      throw new Error(error || 'Login failed');
     }
-
-    console.log('Login successful, returning user data and token');
-    localStorage.setItem('token', data.token);
-    return {
-      user: data.user,
-      token: data.token
-    };
+    
+    return await response.json();
   } catch (error) {
     console.error('Login error:', error);
     throw error;

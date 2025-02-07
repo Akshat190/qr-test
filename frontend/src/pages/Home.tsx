@@ -10,9 +10,10 @@ export const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 z-10"></div>
         <div className="absolute inset-0 opacity-30 z-20 bg-[url('data:image/svg+xml,...')]"></div>
         <img
-          src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3"
+          src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
           alt="Restaurant"
           className="w-full h-full object-cover scale-105 animate-slow-zoom"
+          loading="lazy"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-30 px-4">
           <div className="bg-black/30 backdrop-blur-sm p-10 rounded-3xl max-w-3xl mx-auto">
@@ -276,3 +277,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;
