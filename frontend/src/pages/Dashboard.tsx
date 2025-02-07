@@ -393,14 +393,29 @@ export const Dashboard = () => {
                       </div>
                     </div>
 
-                    {/* Order Items List - Without remove buttons */}
+                    {/* Order Items List */}
                     <div className="divide-y divide-gray-100">
                       {order.items.map((item: OrderItem) => (
                         <div 
                           key={item.menuItem}
                           className="p-4 hover:bg-gray-50 transition-colors"
                         >
-                          <div className="flex items-center justify-between gap-4">
+                          <div className="flex items-center gap-4">
+                            {/* Add image container */}
+                            <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                              <img
+                                src={item.image || '/placeholder-food.png'}
+                                alt={item.name}
+                                className="w-full h-full object-cover"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.src = '/placeholder-food.png';
+                                  target.onerror = null;
+                                }}
+                              />
+                            </div>
+
+                            {/* Item details */}
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center justify-between mb-1">
                                 <h4 className="font-medium text-gray-900 truncate">

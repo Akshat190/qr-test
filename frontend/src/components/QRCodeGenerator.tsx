@@ -18,9 +18,11 @@ const QRCodeGenerator = ({ restaurantId, restaurantName }: QRCodeGeneratorProps)
   const [downloadSuccess, setDownloadSuccess] = useState(false);
 
   useEffect(() => {
+    // Generate unique restaurant-specific menu URL
     const baseUrl = window.location.origin;
-    const url = `${baseUrl}/menu/${restaurantId}`;
-    console.log('Menu URL:', url);
+    // restaurantId is passed from user data
+    const url = `${baseUrl}/restaurant/${restaurantId}/menu`;
+    console.log('Restaurant-specific Menu URL:', url, 'Restaurant ID:', restaurantId);
     setMenuUrl(url);
   }, [restaurantId]);
 

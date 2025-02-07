@@ -34,12 +34,12 @@ router.post('/register', async (req, res) => {
     });
     await newUser.save();
 
-    // Generate JWT token
+    // Generate JWT token with user._id as restaurantId
     const token = jwt.sign(
       { 
-        id: newUser._id, 
+        id: newUser._id,  // User ID
         role: newUser.role,
-        restaurantId: newUser._id
+        restaurantId: newUser._id  // Same as User ID for owners
       },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }

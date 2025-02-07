@@ -1,15 +1,16 @@
 // import React from 'react';
 import { Link } from 'react-router-dom';
-import { QrCode, LayoutDashboard, UtensilsCrossed, Star, Clock } from 'lucide-react';
+import { LayoutDashboard, UtensilsCrossed, ArrowRight, Smartphone, Users, ChefHat, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
       <div className="relative h-[700px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 z-10"></div>
-        <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-30 z-20"></div>
+        <div className="absolute inset-0 opacity-30 z-20 bg-[url('data:image/svg+xml,...')]"></div>
         <img
-          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4"
+          src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3"
           alt="Restaurant"
           className="w-full h-full object-cover scale-105 animate-slow-zoom"
         />
@@ -55,73 +56,223 @@ export const Home = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-24">
-        <h2 className="text-4xl md:text-5xl font-black text-center mb-16 tracking-tight">
-          Why Choose Us
-          <span className="block mt-4 text-xl md:text-2xl font-light text-transparent 
-                        bg-clip-text bg-gradient-to-r from-purple-100 to-pink-100">
-            Experience the Difference
-          </span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="group relative bg-white/10 backdrop-blur-lg p-8 rounded-3xl 
-                       hover:bg-gradient-to-br hover:from-white hover:to-purple-50
-                       transition-all duration-500 transform hover:scale-105 hover:-rotate-1">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl 
-                         opacity-0 group-hover:opacity-50 blur-lg transition-all duration-500 -z-10"></div>
-            <div className="bg-purple-600/10 p-4 rounded-2xl w-fit mx-auto mb-6 group-hover:bg-purple-600 
-                         transition-colors duration-500 rotate-3 group-hover:rotate-12">
-              <QrCode className="h-12 w-12 text-purple-200 group-hover:text-white transition-colors duration-500" />
-            </div>
-            <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-gray-900 text-center
-                        tracking-tight">
-              Contactless Ordering
-            </h3>
-            <p className="text-base text-purple-100 group-hover:text-gray-600 text-center leading-relaxed
-                       font-light">
-              Scan QR code to view menu and place orders directly from your table
-            </p>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 py-24 relative">
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
+          />
+        </div>
 
-          <div className="group relative bg-white/10 backdrop-blur-lg p-8 rounded-3xl 
-                       hover:bg-gradient-to-br hover:from-white hover:to-purple-50
-                       transition-all duration-500 transform hover:scale-105">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl 
-                         opacity-0 group-hover:opacity-50 blur-lg transition-all duration-500 -z-10"></div>
-            <div className="bg-purple-600/10 p-4 rounded-2xl w-fit mx-auto mb-6 group-hover:bg-purple-600 
-                         transition-colors duration-500 rotate-3 group-hover:rotate-12">
-              <Clock className="h-12 w-12 text-purple-200 group-hover:text-white transition-colors duration-500" />
-            </div>
-            <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-gray-900 text-center
-                        tracking-tight">
-              Real-time Updates
-            </h3>
-            <p className="text-base text-purple-100 group-hover:text-gray-600 text-center leading-relaxed
-                       font-light">
-              Track your order status and get instant notifications
-            </p>
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20 relative z-10"
+        >
+          <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
+            Get Started in Minutes
+            <span className="block mt-4 text-xl md:text-2xl font-light text-purple-200">
+              Four simple steps to digitize your menu
+            </span>
+          </h2>
+        </motion.div>
 
-          <div className="group relative bg-white/10 backdrop-blur-lg p-8 rounded-3xl 
-                       hover:bg-gradient-to-br hover:from-white hover:to-purple-50
-                       transition-all duration-500 transform hover:scale-105 hover:rotate-1">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl 
-                         opacity-0 group-hover:opacity-50 blur-lg transition-all duration-500 -z-10"></div>
-            <div className="bg-purple-600/10 p-4 rounded-2xl w-fit mx-auto mb-6 group-hover:bg-purple-600 
-                         transition-colors duration-500 rotate-3 group-hover:rotate-12">
-              <Star className="h-12 w-12 text-purple-200 group-hover:text-white transition-colors duration-500" />
-            </div>
-            <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-gray-900 text-center
-                        tracking-tight">
-              Easy Management
-            </h3>
-            <p className="text-base text-purple-100 group-hover:text-gray-600 text-center leading-relaxed
-                       font-light">
-              Efficiently manage your menu and track orders
-            </p>
-          </div>
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {[
+            {
+              step: 1,
+              title: "Sign Up",
+              description: "Create your restaurant account in seconds",
+              icon: <LayoutDashboard className="w-6 h-6" />,
+              image: "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?ixlib=rb-4.0.3",
+              color: "from-blue-400 to-indigo-500",
+              features: ["Quick registration", "Easy verification", "Secure access"]
+            },
+            {
+              step: 2,
+              title: "Add Your Menu",
+              description: "Upload your dishes with photos and prices",
+              icon: <UtensilsCrossed className="w-6 h-6" />,
+              image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3",
+              color: "from-indigo-400 to-purple-500",
+              features: ["Upload photos", "Set prices", "Organize categories"]
+            },
+            {
+              step: 3,
+              title: "Generate QR Code",
+              description: "Get your unique restaurant QR code",
+              icon: <Smartphone className="w-6 h-6" />,
+              image: "https://plus.unsplash.com/premium_photo-1681293215212-2a7f852e44ee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              color: "from-purple-400 to-pink-500",
+              features: ["Instant generation", "Easy to print", "Customizable design"]
+            },
+            {
+              step: 4,
+              title: "Start Serving",
+              description: "Place QR codes and start accepting orders",
+              icon: <ChefHat className="w-6 h-6" />,
+              image: "https://images.unsplash.com/photo-1576867757603-05b134ebc379?ixlib=rb-4.0.3",
+              color: "from-pink-400 to-rose-500",
+              features: ["Ready to use", "Track orders", "Manage menu"]
+            }
+          ].map((item, index) => (
+            <motion.div
+              key={item.step}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              className="group bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 
+                         hover:border-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <div className="p-6">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} 
+                                 flex items-center justify-center text-white shadow-lg transform 
+                                 group-hover:scale-110 transition-transform duration-300`}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    <p className="text-purple-200 text-sm">{item.description}</p>
+                  </div>
+                </div>
+
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  className="relative h-40 rounded-xl overflow-hidden mb-6"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transform transition-transform 
+                             duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 bg-white/20 backdrop-blur-sm text-white 
+                                px-3 py-1 rounded-full text-sm font-medium">
+                    Step {item.step}
+                  </div>
+                </motion.div>
+
+                <ul className="space-y-2">
+                  {item.features.map((feature, idx) => (
+                    <motion.li
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 + idx * 0.1 }}
+                      className="flex items-center gap-2 text-purple-100"
+                    >
+                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${item.color}`} />
+                      {feature}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
+          <Link
+            to="/register"
+            className="inline-flex items-center px-8 py-4 bg-white text-indigo-600 rounded-full
+                     font-bold hover:bg-opacity-90 transition-all duration-300 hover:scale-105
+                     shadow-lg hover:shadow-xl"
+          >
+            Get Started Now
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </motion.div>
+      </div>
+
+      <div className="py-24">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center text-white mb-16"
+        >
+          Benefits for Your Restaurant
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            {
+              icon: <Smartphone className="w-8 h-8" />,
+              title: "Contactless Ordering",
+              description: "Safe and modern dining experience"
+            },
+            {
+              icon: <Users className="w-8 h-8" />,
+              title: "Better Customer Experience",
+              description: "Quick and easy menu access"
+            },
+            {
+              icon: <ChefHat className="w-8 h-8" />,
+              title: "Efficient Management",
+              description: "Real-time menu updates"
+            },
+            {
+              icon: <Sparkles className="w-8 h-8" />,
+              title: "Increased Revenue",
+              description: "Streamlined ordering process"
+            }
+          ].map((benefit, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl text-center"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center text-white">
+                {benefit.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">{benefit.title}</h3>
+              <p className="text-purple-100">{benefit.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center py-16"
+      >
+        <h2 className="text-4xl font-bold text-white mb-6">
+          Ready to Modernize Your Restaurant?
+        </h2>
+        <p className="text-purple-100 mb-8 max-w-2xl mx-auto">
+          Join thousands of restaurants already using our QR Menu system
+        </p>
+        <Link
+          to="/register"
+          className="inline-flex items-center px-8 py-4 bg-white text-indigo-600 rounded-full
+                   font-bold hover:bg-opacity-90 transition-all duration-300 hover:scale-105"
+        >
+          Get Started Now
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </Link>
+      </motion.div>
     </div>
   );
 };
